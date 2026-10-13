@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b718hki53on1t"]
+
+[ext_resource type="Script" uid="uid://vftqsfnibi13" path="res://scripts/enemy_basic.gd" id="1_g5mps"]
+[ext_resource type="Texture2D" uid="uid://8oer0u5xlxvk" path="res://assets/Ninja Adventure - Asset Pack/Actor/Character/Boy/Faceset.png" id="2_x206n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnn0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x206n")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vnn0b"]
+radius = 20.0
+
+[node name="enemy_basic" type="CharacterBody2D" unique_id=442014108]
+script = ExtResource("1_g5mps")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1068246857]
+sprite_frames = SubResource("SpriteFrames_vnn0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1202139960]
+shape = SubResource("CircleShape2D_vnn0b")
