@@ -1,2 +1,2 @@
-# Untitled-Incremental-Game
-Its an incremental game with out a title
+# Alien-Incremental-Game
+Its an incremental game without a title
