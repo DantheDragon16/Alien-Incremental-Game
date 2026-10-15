@@ -4,7 +4,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vnn0b"]
 
-[node name="Node2D" type="Area2D" unique_id=138614331]
+[node name="WeaponManager" type="Area2D" unique_id=138614331]
 monitoring = false
 script = ExtResource("1_wrmxl")
 
