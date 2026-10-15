@@ -1,3 +1,81 @@
 [gd_scene format=3 uid="uid://btr60cs7fheyt"]
 
-[node name="GameOver" type="Node2D" unique_id=1965212297]
+[ext_resource type="Script" uid="uid://c3pmsxl7pw7kb" path="res://scripts/game_over.gd" id="1_xeevv"]
+
+[node name="GameOver" type="Control" unique_id=1775405934]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xeevv")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1768220561]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Stats" type="VBoxContainer" parent="Panel" unique_id=532370117]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="GameOver" type="Label" parent="Panel/Stats" unique_id=1301594217]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Rewards" type="Label" parent="Panel/Stats" unique_id=1058730426]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Rewards:"
+horizontal_alignment = 1
+
+[node name="Takedowns" type="Label" parent="Panel/Stats" unique_id=1915240107]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Takedowns:"
+horizontal_alignment = 1
+
+[node name="TotalCurrency" type="Label" parent="Panel/Stats" unique_id=1032658614]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Total Currency:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=782841652]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 64
+
+[node name="Play" type="Button" parent="Panel/HBoxContainer" unique_id=512862312]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Play"
+
+[node name="Shop" type="Button" parent="Panel/HBoxContainer" unique_id=586705609]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Shop"
+
+[node name="Menu" type="Button" parent="Panel/HBoxContainer" unique_id=1687695722]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Menu"
+
+[connection signal="pressed" from="Panel/HBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/Menu" to="." method="_on_menu_pressed"]
