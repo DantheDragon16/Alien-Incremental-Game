@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Untitled Incremental Game"
-run/main_scene="uid://htwfgcjav62y"
+run/main_scene="uid://be6im70gt0cuu"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
