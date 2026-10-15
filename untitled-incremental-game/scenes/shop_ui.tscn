@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://vgllrvrsgysi"]
+
+[ext_resource type="Script" uid="uid://obnuqqmig7s4" path="res://scripts/shop_ui.gd" id="1_fs6yy"]
+
+[node name="ShopUI" type="Control" unique_id=1775405934]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fs6yy")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1768220561]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Gold" type="Label" parent="Panel" unique_id=1301594217]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "Gold: "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1507779447]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 16
+
+[node name="Attack" type="Button" parent="Panel/VBoxContainer" unique_id=1779182291]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Attack"
+
+[node name="Health" type="Button" parent="Panel/VBoxContainer" unique_id=653265427]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Health"
+
+[node name="Exit" type="Button" parent="Panel/VBoxContainer" unique_id=604179388]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Exit"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Health" to="." method="_on_health_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
