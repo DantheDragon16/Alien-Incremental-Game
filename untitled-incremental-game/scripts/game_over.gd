@@ -1,10 +1,6 @@
 extends Control
 class_name GameOverUI
 
-signal return_to_main_menu()
-signal play_again()
-signal open_shop()
-
 @onready var rewards_label: Label = $Panel/Stats/Rewards
 @onready var takedowns_label: Label = $Panel/Stats/Takedowns
 @onready var total_currency_label: Label = $Panel/Stats/TotalCurrency
@@ -16,10 +12,10 @@ func setup(player_game_stats: Array) -> void:
 	total_currency_label.text = str(player_game_stats[0] + current_total)
 
 func _on_shop_pressed() -> void:
-	open_shop.emit()
+	EventBus.open_shop.emit()
 
 func _on_play_pressed() -> void:
-	play_again.emit()
+	EventBus.start_run.emit()
 
 func _on_menu_pressed() -> void:
-	return_to_main_menu.emit()
+	EventBus.open_main_menu.emit()

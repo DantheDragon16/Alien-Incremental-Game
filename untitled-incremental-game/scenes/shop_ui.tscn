@@ -44,11 +44,23 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Health"
 
-[node name="Exit" type="Button" parent="Panel/VBoxContainer" unique_id=604179388]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1923620968]
 layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Play" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1063898572]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 64
-text = "Exit"
+text = "Play"
+
+[node name="Menu" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=604179388]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Menu"
 
 [connection signal="pressed" from="Panel/VBoxContainer/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Health" to="." method="_on_health_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Menu" to="." method="_on_exit_pressed"]

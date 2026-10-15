@@ -2,7 +2,7 @@ extends Control
 #currently connected to nothing but will be used to 
 signal attack_increased()
 signal health_increased()
-signal shop_closed()
+
 #Stores the players total gold and prices of the upgrades
 var player_gold: int = 10
 var attack_cost: int = 1
@@ -39,8 +39,11 @@ func update_shop(which_button: Button) -> void:
 		get(stat_name + "_increased").emit()
 
 func _on_exit_pressed() -> void:
-	shop_closed.emit()
+	EventBus.open_main_menu.emit()
 
 func remove_warnings() -> void:
 	attack_increased.emit()
 	health_increased.emit()
+
+func _on_play_pressed() -> void:
+	EventBus.start_run.emit()

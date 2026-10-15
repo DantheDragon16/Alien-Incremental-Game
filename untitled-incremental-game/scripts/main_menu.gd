@@ -1,31 +1,11 @@
 extends Control
-
 class_name MainMenu
 
-var game_scene: PackedScene = load("res://scenes/game_manager.tscn")
-var shop_scene: PackedScene = load("res://scenes/shop_ui.tscn")
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _on_start_run_pressed() -> void:
-	get_parent().add_child(game_scene.instantiate())
-	queue_free()
-	pass # Replace with function body.
-
+	EventBus.start_run.emit()
 
 func _on_shop_pressed() -> void:
-	get_parent().add_child(shop_scene.instantiate())
-	queue_free()
-	pass # Replace with function body.
-
+	EventBus.open_shop.emit()
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-	pass # Replace with function body.
