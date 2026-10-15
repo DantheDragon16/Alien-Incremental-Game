@@ -7,7 +7,6 @@ var parent: Node2D
 
 func _ready() -> void:
 	parent = get_parent()
-	health = 0
 
 
 #Player Stats

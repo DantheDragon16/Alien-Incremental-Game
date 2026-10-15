@@ -1,3 +1,82 @@
 [gd_scene format=3 uid="uid://cjn1ffe8cn56a"]
 
-[node name="MainMenu" type="Node2D" unique_id=1313820178]
+[ext_resource type="Script" uid="uid://chvd0qq2d8i27" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control" unique_id=149277967]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="Panel" type="Panel" parent="." unique_id=751127765]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=1664388571]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.25
+anchor_right = 0.5
+anchor_bottom = 0.25
+offset_left = -291.5
+offset_right = 291.5
+offset_bottom = 69.0
+grow_horizontal = 2
+offset_transform_position = Vector2(0, 150)
+theme_override_font_sizes/font_size = 50
+text = "Alien Incremental Game"
+
+[node name="Quit" type="Button" parent="Panel" unique_id=2006638275]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.85
+anchor_right = 0.6
+anchor_bottom = 0.9
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "QUIT"
+
+[node name="Shop" type="Button" parent="Panel" unique_id=125712650]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.75
+anchor_right = 0.6
+anchor_bottom = 0.8
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SHOP"
+
+[node name="StartRun" type="Button" parent="Panel" unique_id=1915151473]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.65
+anchor_right = 0.6
+anchor_bottom = 0.7
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "START RUN"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="Panel/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="Panel/StartRun" to="." method="_on_start_run_pressed"]
