@@ -7,6 +7,8 @@ var enemy_scene: PackedScene = load("res://scenes/enemy_basic.tscn")
 var player_scene: PackedScene = load("res://scenes/player_manager.tscn")
 var game_over_scene: PackedScene = load("res://scenes/game_over.tscn")
 
+var player: PlayerManager
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawn_enemy(get_random_pos())
@@ -16,14 +18,9 @@ func _ready() -> void:
 	add_child(weapon)
 	
 	# Instantiate Player Stats
-	var player: PlayerManager = player_scene.instantiate()
+	player = player_scene.instantiate()
 	add_child(player)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
 ## spawns an enemy
 func spawn_enemy(pos: Vector2) -> void:
 	# Creates a 2 second gap between enemy spawns
@@ -33,6 +30,7 @@ func spawn_enemy(pos: Vector2) -> void:
 	var enemy: EnemyBasic = enemy_scene.instantiate()
 	add_child(enemy, true)
 	enemy.set_pos(pos)
+	enemy._player = player
 	spawn_enemy(get_random_pos())
 	
 func get_random_pos() -> Vector2:
@@ -43,10 +41,7 @@ func get_random_pos() -> Vector2:
 
 ## Ends the game, unloads game assets, and changes scene to game_over screen
 func end_game(_reward: int) -> void:
-	# Opens game over menu
-	var game_over: Node2D = game_over_scene.instantiate()
-	get_parent().add_child(game_over)
 	# Adds gold
 	get_parent().gold_count += _reward
-	# kills self
-	queue_free()
+	# Opens game over menu
+	EventBus.game_over.emit()

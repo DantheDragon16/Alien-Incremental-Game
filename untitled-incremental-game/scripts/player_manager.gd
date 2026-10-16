@@ -4,6 +4,7 @@ extends Node2D
 class_name PlayerManager
 
 var parent: Node2D
+var dead: bool = false
 
 func _ready() -> void:
 	parent = get_parent()
@@ -13,8 +14,8 @@ func _ready() -> void:
 ## Refers to the health of the player during a round
 var health: int = 3:
 	set(value):
-		health = maxi(0,value)
-		if health <= 0:
+		health = value
+		if health == 0:
 			death()
 
 ## Refers to the multiplier to the player's base damage
@@ -31,5 +32,6 @@ func damage(_damage:int) -> void:
 ## unloading enemies and the stage,
 ## as well as returning the player to the shop
 func death() -> void:
-	get_parent().end_game(reward)
-	pass
+	if !dead:
+		dead = true
+		get_parent().end_game(reward)
