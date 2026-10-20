@@ -51,7 +51,7 @@ func attack(_damage: int) -> void:
 		attack_sprite.visible = true
 		print("visible attack")
 		await get_tree().create_timer(0.1).timeout
-		_player.damage(_damage)
+		EventBus.damage_player.emit(_damage)
 		attack_ready = false
 		attack_sprite.visible = false
 		print("invisible attack")
