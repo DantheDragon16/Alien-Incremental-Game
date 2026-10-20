@@ -1,7 +1,6 @@
 extends Node2D
 class_name EnemyBasic
 
-var _player: PlayerManager
 var attack_ready: bool = true
 var damage: int = 1
 var speed: float = 1

@@ -4,7 +4,6 @@ class_name GameManager
 # Referencing connected scenes
 var weapon_manager_scene: PackedScene = load("res://scenes/weapon_manager.tscn")
 var enemy_scene: PackedScene = load("res://scenes/enemy_basic.tscn")
-var player_scene: PackedScene = load("res://scenes/player_manager.tscn")
 var game_over_scene: PackedScene = load("res://scenes/game_over.tscn")
 
 var player_max_health:int = 3
