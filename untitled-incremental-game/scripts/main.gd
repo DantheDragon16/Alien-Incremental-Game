@@ -35,7 +35,7 @@ func open_main_menu() -> void:
 	current_scene = main_menu_scene.instantiate()
 	add_child(current_scene)
 	
-func open_game_over() -> void:
+func open_game_over(reward: int) -> void:
 	current_scene.queue_free()
 	current_scene = game_over_scene.instantiate()
 	add_child(current_scene)
