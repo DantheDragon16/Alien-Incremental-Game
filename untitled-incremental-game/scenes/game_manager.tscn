@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://htwfgcjav62y"]
 
 [ext_resource type="Script" uid="uid://rs2sgvbgrp8j" path="res://scripts/game_manager.gd" id="1_hwd4i"]
+[ext_resource type="PackedScene" uid="uid://dm732dj8pgjjf" path="res://scenes/game_ui.tscn" id="2_glms7"]
 
 [node name="GameManager" type="Node2D" unique_id=1995116320]
 script = ExtResource("1_hwd4i")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1927112148]
 position = Vector2(500, 300)
+
+[node name="GameUi" parent="." unique_id=402973125 instance=ExtResource("2_glms7")]
