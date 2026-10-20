@@ -45,3 +45,12 @@ func end_game(_reward: int) -> void:
 	get_parent().gold_count += _reward
 	# Opens game over menu
 	EventBus.game_over.emit()
+
+class Player:
+	
+	var max_health: int = 3
+	var health: int = max_health
+	var damage_multiplier: int = 1
+	var attack_speed: int = 1
+	var reward: int = 0
+	

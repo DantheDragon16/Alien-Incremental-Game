@@ -7,6 +7,8 @@ var damage: int = 1
 var speed: float = 1
 var scale_factor: float = 1
 
+@onready var attack_sprite: Sprite2D = $AttackSprite
+
 var initial_distance: float = 10
 
 ## The distance of the enemy from the player
@@ -46,8 +48,13 @@ func attack(_damage: int) -> void:
 		# Deal damage to the player
 		await get_tree().create_timer(1).timeout
 		print("Attacking player")
+		attack_sprite.visible = true
+		print("visible attack")
+		await get_tree().create_timer(0.1).timeout
 		_player.damage(_damage)
 		attack_ready = false
+		attack_sprite.visible = false
+		print("invisible attack")
 		
 		# attack cooldown
 		await get_tree().create_timer(1).timeout
