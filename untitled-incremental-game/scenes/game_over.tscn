@@ -35,22 +35,16 @@ theme_override_font_sizes/font_size = 64
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="Rewards" type="Label" parent="Panel/Stats" unique_id=1058730426]
+[node name="TotalGold" type="Label" parent="Panel/Stats" unique_id=1058730426]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Rewards:"
+text = "Total Gold:"
 horizontal_alignment = 1
 
 [node name="Takedowns" type="Label" parent="Panel/Stats" unique_id=1915240107]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Takedowns:"
-horizontal_alignment = 1
-
-[node name="TotalCurrency" type="Label" parent="Panel/Stats" unique_id=1032658614]
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Total Currency:"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=782841652]

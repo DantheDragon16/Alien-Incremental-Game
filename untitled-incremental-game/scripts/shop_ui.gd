@@ -17,14 +17,24 @@ func _ready() -> void:
 	attack_button.text = "attack: " + str(attack_cost)
 	health_button.text = "health: " + str(health_cost)
 	gold_label.text = "gold: " + str(player_gold)
+
+func open_shop(gold_total: int, _attack_cost: int, _health_cost: int ) -> void:
+	player_gold = gold_total
+	attack_cost = _attack_cost
+	health_cost = _health_cost
+	gold_label.text = "gold: " + str(player_gold)
+	attack_button.text = "attack: " + str(attack_cost)
+	health_button.text = "health: " + str(health_cost)
 	
 ##Attempts to upgrade health by calling update health function 
 func _on_attack_pressed() -> void:
-	update_shop(attack_button)
+	if player_gold >= attack_cost:
+		update_shop(attack_button)
 
 ##Attempts to upgrade health by calling update health function 
 func _on_health_pressed() -> void:
-	update_shop(health_button)
+	if player_gold >= health_cost:
+		update_shop(health_button)
 
 ## Takes a stat and checks if player can buy the upgrade before sending upgrade signal and updating relavant numbers
 func update_shop(which_button: Button) -> void:

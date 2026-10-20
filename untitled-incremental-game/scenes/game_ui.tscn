@@ -48,7 +48,7 @@ size_flags_horizontal = 3
 [node name="Label" type="Label" parent="Panel/HBoxContainer/Takedowns" unique_id=762893202]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Takedowns: 999"
+text = "takedowns:"
 horizontal_alignment = 1
 
 [node name="Rewards" type="PanelContainer" parent="Panel/HBoxContainer" unique_id=321620598]
@@ -58,5 +58,5 @@ size_flags_horizontal = 3
 [node name="Label" type="Label" parent="Panel/HBoxContainer/Rewards" unique_id=1145804290]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Rewards: 999"
+text = "rewards:"
 horizontal_alignment = 1

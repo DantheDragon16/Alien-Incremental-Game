@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rs2sgvbgrp8j" path="res://scripts/game_manager.gd" id="1_hwd4i"]
 [ext_resource type="PackedScene" uid="uid://dm732dj8pgjjf" path="res://scenes/game_ui.tscn" id="2_glms7"]
+[ext_resource type="Script" uid="uid://bla50lc5x382j" path="res://scripts/game_ui.gd" id="3_udu3i"]
 
 [node name="GameManager" type="Node2D" unique_id=1995116320]
 script = ExtResource("1_hwd4i")
@@ -10,3 +11,4 @@ script = ExtResource("1_hwd4i")
 position = Vector2(500, 300)
 
 [node name="GameUi" parent="." unique_id=402973125 instance=ExtResource("2_glms7")]
+script = ExtResource("3_udu3i")

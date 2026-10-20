@@ -5,17 +5,22 @@ class_name GameManager
 var weapon_manager_scene: PackedScene = load("res://scenes/weapon_manager.tscn")
 var enemy_scene: PackedScene = load("res://scenes/enemy_basic.tscn")
 var game_over_scene: PackedScene = load("res://scenes/game_over.tscn")
-
+@onready var game_ui: CanvasLayer = $GameUi
 var max_health:int = 3
-var health: int = 3
+var health: int = 3:
+	set(value):
+		health = value
+		game_ui.on_health_changed(health, max_health)
 var damage_multipler:int = 1
 var attack_speed:int = 1
 var reward: int = 0
-
+var takedowns: int = 0:
+	set(value):
+		takedowns = value
+		game_ui.on_takedown(reward, takedowns)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawn_enemy(get_random_pos())
-	
 	# Instantiate weapon controls
 	var weapon: WeaponManager = weapon_manager_scene.instantiate()
 	add_child(weapon)
@@ -30,6 +35,8 @@ func spawn_enemy(pos: Vector2) -> void:
 	# Spawns an enemy at a random position
 	var enemy: EnemyBasic = enemy_scene.instantiate()
 	add_child(enemy, true)
+	enemy.request_attack.connect(damage)
+	enemy.on_death.connect(enemy_takedown)
 	enemy.set_pos(pos)
 	spawn_enemy(get_random_pos())
 	
@@ -43,4 +50,8 @@ func damage(dam: int) -> void:
 		health -= dam
 		print(health)
 		if health <= 0:
-			EventBus.game_over.emit(reward)
+			EventBus.game_over.emit(reward, takedowns)
+
+func enemy_takedown(enemy: EnemyBasic) -> void:
+	reward += enemy.gold_given
+	takedowns += 1

@@ -1,10 +1,13 @@
 extends Node2D
 class_name EnemyBasic
 
+signal request_attack(_damage: int)
+signal on_death(enemy: EnemyBasic)
 var attack_ready: bool = true
 var damage: int = 1
 var speed: float = 1
 var scale_factor: float = 1
+var gold_given: int = 1
 
 @onready var attack_sprite: Sprite2D = $AttackSprite
 
@@ -34,11 +37,12 @@ func set_pos(_pos: Vector2):
 
 ## Unloads the enemy 
 func death():
+	on_death.emit(self)
 	queue_free()
 
 ## Changes the health value
-func take_damage(damage: int) -> void:
-	health -= damage
+func take_damage(_damage: int) -> void:
+	health -= _damage
 
 ## Deals damage to the player
 func attack(_damage: int) -> void:
@@ -50,7 +54,7 @@ func attack(_damage: int) -> void:
 		attack_sprite.visible = true
 		print("visible attack")
 		await get_tree().create_timer(0.1).timeout
-		EventBus.damage_player.emit(_damage)
+		request_attack.emit(damage)
 		attack_ready = false
 		attack_sprite.visible = false
 		print("invisible attack")
