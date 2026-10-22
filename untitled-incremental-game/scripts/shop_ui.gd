@@ -1,7 +1,6 @@
 extends Control
 #currently connected to nothing but will be used to 
-signal attack_increased()
-signal health_increased()
+signal update_stats(health, damage, speed)
 
 #Stores the players total gold and prices of the upgrades
 var player_gold: int = 10
@@ -42,8 +41,7 @@ func _on_exit_pressed() -> void:
 	EventBus.open_main_menu.emit()
 
 func remove_warnings() -> void:
-	attack_increased.emit()
-	health_increased.emit()
+	update_stats.emit(0,0,0)
 
 func _on_play_pressed() -> void:
 	EventBus.start_run.emit()

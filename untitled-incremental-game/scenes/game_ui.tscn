@@ -28,34 +28,35 @@ text = "3/3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="." unique_id=281115907]
+[node name="Panel" type="Panel" parent="GameUi" unique_id=281115907]
+layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.142
 grow_horizontal = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1920945158]
+[node name="HBoxContainer" type="HBoxContainer" parent="GameUi/Panel" unique_id=1920945158]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 88.0
 grow_horizontal = 2
 
-[node name="Takedowns" type="PanelContainer" parent="Panel/HBoxContainer" unique_id=562233781]
+[node name="Takedowns" type="PanelContainer" parent="GameUi/Panel/HBoxContainer" unique_id=562233781]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/Takedowns" unique_id=762893202]
+[node name="Label" type="Label" parent="GameUi/Panel/HBoxContainer/Takedowns" unique_id=762893202]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Takedowns: 999"
 horizontal_alignment = 1
 
-[node name="Rewards" type="PanelContainer" parent="Panel/HBoxContainer" unique_id=321620598]
+[node name="Rewards" type="PanelContainer" parent="GameUi/Panel/HBoxContainer" unique_id=321620598]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/Rewards" unique_id=1145804290]
+[node name="Label" type="Label" parent="GameUi/Panel/HBoxContainer/Rewards" unique_id=1145804290]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Rewards: 999"

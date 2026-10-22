@@ -5,6 +5,9 @@ var main_menu_scene: PackedScene = load("res://scenes/main_menu.tscn")
 var shop_scene: PackedScene = load("res://scenes/shop_ui.tscn")
 var game_over_scene: PackedScene = load("res://scenes/game_over.tscn")
 
+var max_health: int = 3
+var damage_multipler: int = 1
+var attack_speed: int = 1
 var gold_count:int = 0
 
 var current_scene: Node
@@ -23,6 +26,7 @@ func _ready() -> void:
 func start_run() -> void:
 	current_scene.queue_free()
 	current_scene = game_manager_scene.instantiate()
+	current_scene.set_player_stats(max_health, damage_multipler, attack_speed)
 	add_child(current_scene)
 
 func open_shop() -> void:
@@ -39,3 +43,8 @@ func open_game_over(reward: int) -> void:
 	current_scene.queue_free()
 	current_scene = game_over_scene.instantiate()
 	add_child(current_scene)
+
+func set_player_stats(_mh:int, _dm:int, _as:int) -> void:
+	max_health = _mh
+	damage_multipler = _dm
+	attack_speed = _as

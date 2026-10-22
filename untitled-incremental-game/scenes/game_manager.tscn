@@ -2,11 +2,19 @@
 
 [ext_resource type="Script" uid="uid://rs2sgvbgrp8j" path="res://scripts/game_manager.gd" id="1_hwd4i"]
 [ext_resource type="PackedScene" uid="uid://dm732dj8pgjjf" path="res://scenes/game_ui.tscn" id="2_glms7"]
+[ext_resource type="Texture2D" uid="uid://bx4dxvdx22crd" path="res://assets/custom_temp/corridor.png" id="3_udu3i"]
 
 [node name="GameManager" type="Node2D" unique_id=1995116320]
 script = ExtResource("1_hwd4i")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1927112148]
-position = Vector2(500, 300)
+position = Vector2(270, 150)
 
 [node name="GameUi" parent="." unique_id=402973125 instance=ExtResource("2_glms7")]
+
+[node name="Background" type="TextureRect" parent="." unique_id=2109321772]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3_udu3i")
+expand_mode = 1
